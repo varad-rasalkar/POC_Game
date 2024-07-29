@@ -1,7 +1,18 @@
+  /************************************************\
+  **                                              **
+  ** Description: Proof of Concept                **
+  ** Author: Varad Rasalkar                       **
+  ** Date: 29-JUL-2024                            **
+  ** Template used:                               **
+  **                                              **
+  ** Modification History:                        **
+  **                                              **
+  \************************************************/
+
 // image paths
 const cardArray = [
-    { name: 'hand-sanitizer', img: 'images/hand-sanitizer.png' },
-    { name: 'hand-sanitizer', img: 'images/hand-sanitizer.png' },
+    { name: 'hand-sanitizer', img: 'images/sanitizer.png' },
+    { name: 'hand-sanitizer', img: 'images/sanitizer.png' },
     { name: 'disinfectant-wipes', img: 'images/disinfectant-wipes.png' },
     { name: 'disinfectant-wipes', img: 'images/disinfectant-wipes.png' },
     { name: 'mask', img: 'images/mask.png' },
@@ -42,7 +53,7 @@ function createBoard() {
         cardElement.setAttribute('data-id', index);
 
         const cardImage = document.createElement('img');
-        cardImage.setAttribute('src', 'images/back-card.png');
+        cardImage.setAttribute('src', 'images/back-card.jpg');
         cardImage.setAttribute('data-name', card.name);
         cardImage.addEventListener('click', flipCard); 
         cardElement.appendChild(cardImage);
@@ -100,8 +111,8 @@ function checkForMatch() {
         setTimeout(() => {
             cards[optionOneId].classList.remove('flipped');
             cards[optionTwoId].classList.remove('flipped');
-            cards[optionOneId].querySelector('img').setAttribute('src', 'images/back-card.png');
-            cards[optionTwoId].querySelector('img').setAttribute('src', 'images/back-card.png');
+            cards[optionOneId].querySelector('img').setAttribute('src', 'images/back-card.jpg');
+            cards[optionTwoId].querySelector('img').setAttribute('src', 'images/back-card.jpg');
         }, 400); // Delay before flipping back unmatched cards
     }
 
@@ -154,6 +165,7 @@ function displayPromoCode() {
 
 // Generate a random promo code (dummy implementation)
 function generatePromoCode() {
+    // This function can be further developed to directly pull a promo code from a database
     return 'DUMMYCODE'; 
 }
 
@@ -169,7 +181,7 @@ function resetGame() {
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
         card.classList.remove('flipped', 'matched');
-        card.querySelector('img').setAttribute('src', 'images/back-card.png');
+        card.querySelector('img').setAttribute('src', 'images/back-card.jpg');
         card.addEventListener('click', flipCard); 
     });
 
